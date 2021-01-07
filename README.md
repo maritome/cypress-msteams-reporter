@@ -23,7 +23,7 @@ How ms-teams message looks like
 ## Installation
 
 ```
-npm install cypress-teams-reporter --save-dev
+npm install cypress-msteams-reporter --save-dev
 ```
 
 ## Prerequisites
