@@ -38,8 +38,9 @@ export async function readAllureReport(reportPath, testEnvPath) {
 		console.warn('Report is empty')
 		title = 'Test report is empty'
 		color = Color.BLACK
-		image =
-			'data:image/png;base64,' + imageToBase64('././assets/images/error.png')
+		image = fs.existsSync('./assets/images/error.png')
+			? 'data:image/png;base64,' + imageToBase64('./assets/images/error.png')
+			: ''
 		text = 'An error has occured and the test report is empty.'
 
 		return { appName, appVersion, color, title, image, text }
@@ -62,8 +63,9 @@ export async function readAllureReport(reportPath, testEnvPath) {
 	if (failedTests.length > 0) {
 		title = `${failedTests.length} test case(s) failed`
 		color = Color.RED
-		image =
-			'data:image/png;base64,' + imageToBase64('././assets/images/failed.png')
+		image = fs.existsSync('./assets/images/failed.png')
+			? 'data:image/png;base64,' + imageToBase64('./assets/images/failed.png')
+			: ''
 		text = `Failed test case(s): <br/> ${failedTests
 			.map((failedTest) => failedTest.name)
 			.join('<br/>')}`
@@ -73,8 +75,9 @@ export async function readAllureReport(reportPath, testEnvPath) {
 				? `${brokenTests.length} test case is broken`
 				: `${brokenTests.length} test cases are broken`
 		color = Color.YELLOW
-		image =
-			'data:image/png;base64,' + imageToBase64('././assets/images/broken.png')
+		image = fs.existsSync('./assets/images/broken.png')
+			? 'data:image/png;base64,' + imageToBase64('././assets/images/broken.png')
+			: ''
 		text = `Broken test case(s): <br/> ${brokenTests
 			.map((brokenTest) => brokenTest.name)
 			.join('<br/>')}`
@@ -84,13 +87,15 @@ export async function readAllureReport(reportPath, testEnvPath) {
 	) {
 		title = 'All test cases passed'
 		color = Color.GREEN
-		image =
-			'data:image/png;base64,' + imageToBase64('././assets/images/passed.png')
+		image = fs.existsSync('./assets/images/passed.png')
+			? 'data:image/png;base64,' + imageToBase64('./assets/images/passed.png')
+			: ''
 	} else {
 		title = 'Unknown Status'
 		color = Color.BLACK
-		image =
-			'data:image/png;base64,' + imageToBase64('././assets/images/error.png')
+		image = fs.existsSync('./assets/images/error.png')
+			? 'data:image/png;base64,' + imageToBase64('./assets/images/error.png')
+			: ''
 		text =
 			'Some of the tests have unknown status or the test results are missing.'
 	}
