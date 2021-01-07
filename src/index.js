@@ -7,18 +7,15 @@ let version
 try {
 	const json = JSON.parse(
 		fs.readFileSync(
-			'./node_modules/cypress-teams-reporter/package.json',
+			'./node_modules/cypress-msteams-reporter/package.json',
 			'utf8'
 		)
 	)
 	version = json.version
 } catch (error) {
-	version = ''
+	version = 'undefined'
 }
-program.version(
-	`git@github.com:maritome/cypress-teams-reporter.git@${version}`,
-	'-v, --version'
-)
+program.version(version, '-v, --version')
 program
 	.option('--verbose', 'show log output')
 	.option(
