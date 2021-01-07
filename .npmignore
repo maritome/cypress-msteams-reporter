@@ -1,10 +1,5 @@
-node_modules
-cypress/screenshots
-cypress/videos
-.env
 allure-report
 allure-results
 cypress
-.gitignore
-.prettierc
 cypress.json
+.env
