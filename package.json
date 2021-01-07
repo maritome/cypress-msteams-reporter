@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/maritome/cypress-msteams-reporter#readme",
   "dependencies": {
-    "commander": "^6.2.1"
+    "commander": "^6.2.1",
+    "dotenv": "^8.2.0",
+    "ms-teams-webhook": "^1.0.4"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.0.0",
-    "cypress": "^6.2.1",
-    "dotenv": "^8.2.0",
-    "ms-teams-webhook": "^1.0.4"
+    "cypress": "^6.2.1"
   }
 }
