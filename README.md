@@ -1,5 +1,7 @@
 # cypress-msteams-reporter
 
+![npm](https://img.shields.io/npm/v/cypress-msteams-reporter) ![GitHub](https://img.shields.io/github/license/maritome/cypress-msteams-reporter) ![npm](https://img.shields.io/npm/dw/cypress-msteams-reporter)
+
 ## Cypress Microsoft Teams Reporter
 
 A Microsoft Teams reporter of your test results.  
