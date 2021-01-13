@@ -46,7 +46,7 @@ if (program.verbose) {
 
 let webhookArgs
 try {
-	webhookArgs = await readAllureReport(reportPath, testEnvPath, reportUrl)
+	webhookArgs = await readAllureReport(reportPath, testEnvPath)
 } catch (error) {
 	error.name
 		? console.error(
