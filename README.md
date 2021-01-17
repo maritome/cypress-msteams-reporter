@@ -1,6 +1,6 @@
 # cypress-msteams-reporter
 
-![npm](https://img.shields.io/npm/v/cypress-msteams-reporter) ![GitHub](https://img.shields.io/github/license/maritome/cypress-msteams-reporter) ![npm](https://img.shields.io/npm/dm/cypress-msteams-reporter) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/maritome/cypress-msteams-reporter/Node.js%20CI)
+![npm](https://img.shields.io/npm/v/cypress-msteams-reporter) ![GitHub](https://img.shields.io/github/license/maritome/cypress-msteams-reporter) ![npm](https://img.shields.io/npm/dm/cypress-msteams-reporter) ![CI](https://github.com/maritome/cypress-msteams-reporter/workflows/CI/badge.svg?branch=main)
 
 ## Cypress Microsoft Teams Reporter
 
