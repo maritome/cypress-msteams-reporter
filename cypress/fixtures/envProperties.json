@@ -1,0 +1,13 @@
+[ {
+    "values" : [ "Application Under Test" ],
+    "name" : "Application"
+  }, {
+    "values" : [ "vx.x.x" ],
+    "name" : "Version"
+  }, {
+    "values" : [ "Stage" ],
+    "name" : "Env"
+  }, {
+    "values" : [ "Chrome" ],
+    "name" : "Browser"
+  } ]

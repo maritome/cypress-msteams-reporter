@@ -17,9 +17,15 @@
  * @type {Cypress.PluginConfig}
  */
 const allureWriter = require('@shelex/cypress-allure-plugin/writer')
+const { readAllureReport } = require('../../src/allureReport')
 module.exports = (on, config) => {
 	// `on` is used to hook into various events Cypress emits
 	// `config` is the resolved Cypress config
+	on('task', {
+		readAllureReport({ reportPath, testEnvPath }) {
+			return readAllureReport(reportPath, testEnvPath)
+		},
+	})
 	allureWriter(on, config)
 	return config
 }

@@ -1,0 +1,71 @@
+[ {
+  "uid" : "e407ddb3654a9cfe",
+  "name" : "should return the correct application name and version",
+  "time" : {
+    "start" : 1610905794541,
+    "stop" : 1610905794675,
+    "duration" : 134
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a880eb00338364a7",
+  "name" : "should return the correct information when all the tests have passed",
+  "time" : {
+    "start" : 1610905794783,
+    "stop" : 1610905794867,
+    "duration" : 84
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aa5bdf93be59d8f9",
+  "name" : "should return the correct information when the test results are missing",
+  "time" : {
+    "start" : 1610905795109,
+    "stop" : 1610905795168,
+    "duration" : 59
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "31572a945dcaa3c1",
+  "name" : "should return the correct information when some of the tests are broken",
+  "time" : {
+    "start" : 1610905794956,
+    "stop" : 1610905795024,
+    "duration" : 68
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "5d9f9eed18df7229",
+  "name" : "should return the correct information when the status of some tests is unknown",
+  "time" : {
+    "start" : 1610905795032,
+    "stop" : 1610905795102,
+    "duration" : 70
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "8f7b758697ca4239",
+  "name" : "should return the correct information when some of the tests have failed",
+  "time" : {
+    "start" : 1610905794875,
+    "stop" : 1610905794945,
+    "duration" : 70
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "79c520cb72431a47",
+  "name" : "should return the correct information when report file is empty",
+  "time" : {
+    "start" : 1610905794684,
+    "stop" : 1610905794748,
+    "duration" : 64
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
