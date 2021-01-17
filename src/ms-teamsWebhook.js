@@ -1,9 +1,8 @@
-import * as dotenv from 'dotenv'
-import { IncomingWebhook } from 'ms-teams-webhook'
+require('dotenv').config()
+const { IncomingWebhook } = require('ms-teams-webhook')
 
-dotenv.config()
-const webhook = new IncomingWebhook(process.env.MS_TEAMS_WEBHOOK_URL)
-export async function sendWebhook(args) {
+async function sendWebhook(args) {
+	const webhook = new IncomingWebhook(process.env.MS_TEAMS_WEBHOOK_URL)
 	await webhook.send(
 		JSON.stringify({
 			'@type': 'MessageCard',
@@ -30,3 +29,4 @@ export async function sendWebhook(args) {
 		})
 	)
 }
+module.exports = { sendWebhook }

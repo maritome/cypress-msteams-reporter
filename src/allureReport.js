@@ -1,9 +1,9 @@
-import * as fs from 'fs'
-import { Status } from './status.js'
-import { Color } from './colors.js'
-import { imageToBase64 } from './encodeImage.js'
+const fs = require('fs')
+const { Status } = require('./status.js')
+const { Color } = require('./colors.js')
+const { imageToBase64 } = require('./encodeImage.js')
 
-export async function readAllureReport(reportPath, testEnvPath) {
+async function readAllureReport(reportPath, testEnvPath) {
 	if (!fs.existsSync(reportPath)) {
 		throw new Error('Report file not found.')
 	}
@@ -24,7 +24,7 @@ export async function readAllureReport(reportPath, testEnvPath) {
 	if (!environment) {
 		console.warn('Environment properties are not set')
 	} else {
-		const envProperties = JSON.parse(environment)
+		const envProperties = await JSON.parse(environment)
 		appName =
 			envProperties
 				.find((envProp) => envProp.name === 'Application')
@@ -46,7 +46,7 @@ export async function readAllureReport(reportPath, testEnvPath) {
 		return { appName, appVersion, color, title, image, text }
 	}
 
-	const testsResults = JSON.parse(report)
+	const testsResults = await JSON.parse(report)
 	totalTests = testsResults.length
 	const passedTests = testsResults.filter(
 		(testRes) => testRes.status === Status.PASSED
@@ -102,3 +102,4 @@ export async function readAllureReport(reportPath, testEnvPath) {
 
 	return { appName, appVersion, color, title, image, text }
 }
+module.exports = { readAllureReport }

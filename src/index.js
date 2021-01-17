@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import program from 'commander'
-import * as fs from 'fs'
-import { readAllureReport } from './allureReport.js'
-import { sendWebhook } from './ms-teamsWebhook.js'
+const program = require('commander')
+const fs = require('fs')
+const { readAllureReport } = require('./allureReport')
+const { sendWebhook } = require('./ms-teamsWebhook')
 
 let version
 try {
@@ -44,29 +44,31 @@ if (program.verbose) {
 	)
 }
 
-let webhookArgs
-try {
-	webhookArgs = await readAllureReport(reportPath, testEnvPath)
-} catch (error) {
-	error.name
-		? console.error(
-				`${error.name}: ${error.message}`,
-				'\nFailed to read the Allure report.'
-		  )
-		: console.error(
-				'An unknown error occurred. Failed to read the Allure report.'
-		  )
-}
-try {
-	sendWebhook({ ...webhookArgs, reportUrl })
-	console.log('MS Teams message was sent successfully.')
-} catch (error) {
-	error.name
-		? console.error(
-				`${error.name}: ${error.message}`,
-				'\nFailed to send MS Teams message.'
-		  )
-		: console.error(
-				'An unknown error occurred. Failed to send MS Teams message.'
-		  )
-}
+;(async () => {
+	let webhookArgs
+	try {
+		webhookArgs = await readAllureReport(reportPath, testEnvPath)
+	} catch (error) {
+		error.name
+			? console.error(
+					`${error.name}: ${error.message}`,
+					'\nFailed to read the Allure report.'
+			  )
+			: console.error(
+					'An unknown error occurred. Failed to read the Allure report.'
+			  )
+	}
+	try {
+		sendWebhook({ ...webhookArgs, reportUrl })
+		console.log('MS Teams message was sent successfully.')
+	} catch (error) {
+		error.name
+			? console.error(
+					`${error.name}: ${error.message}`,
+					'\nFailed to send MS Teams message.'
+			  )
+			: console.error(
+					'An unknown error occurred. Failed to send MS Teams message.'
+			  )
+	}
+})()
