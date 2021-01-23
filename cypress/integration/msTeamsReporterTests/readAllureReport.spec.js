@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Allure report reader', () => {
-	it('throws an error when the given report file path does not exist', () => {
+	it.skip('throws an error when the given report file path does not exist', () => {
 		const reportPath = './cypress/fixtures/notExistent.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.on('fail', (error) => {
@@ -11,7 +11,7 @@ describe('Allure report reader', () => {
 		cy.task('readAllureReport', { reportPath, testEnvPath })
 	})
 
-	it('throws an error when the given test env properties file path does not exist', () => {
+	it.skip('throws an error when the given test env properties file path does not exist', () => {
 		const reportPath = './cypress/fixtures/passed.json'
 		const testEnvPath = './cypress/fixtures/notExistent.json'
 		cy.on('fail', (error) => {

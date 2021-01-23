@@ -2,4 +2,7 @@ allure-report
 allure-results
 cypress
 cypress.json
+node_modules
 .env
+.github
+.prettierrc
