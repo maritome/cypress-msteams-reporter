@@ -1,6 +1,26 @@
 /// <reference types="cypress" />
 
 describe('Allure report reader', () => {
+	it('throws an error when the given report file path does not exist', () => {
+		const reportPath = './cypress/fixtures/notExistent.json'
+		const testEnvPath = './cypress/fixtures/envProperties.json'
+		cy.on('fail', (error) => {
+			console.log('error', error)
+			expect(error.message).to.include('Report file not found.')
+		})
+		cy.task('readAllureReport', { reportPath, testEnvPath })
+	})
+
+	it('throws an error when the given test env properties file path does not exist', () => {
+		const reportPath = './cypress/fixtures/passed.json'
+		const testEnvPath = './cypress/fixtures/notExistent.json'
+		cy.on('fail', (error) => {
+			console.log('error', error)
+			expect(error.message).to.include('Test environment file not found.')
+		})
+		cy.task('readAllureReport', { reportPath, testEnvPath })
+	})
+
 	it('returns the correct application name and version', () => {
 		const reportPath = './cypress/fixtures/passed.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
