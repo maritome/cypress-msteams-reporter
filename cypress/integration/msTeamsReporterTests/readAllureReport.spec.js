@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Allure report reader', () => {
-	it('should return the correct application name and version', () => {
+	it('returns the correct application name and version', () => {
 		const reportPath = './cypress/fixtures/passed.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
@@ -10,7 +10,7 @@ describe('Allure report reader', () => {
 		})
 	})
 
-	it('should return the correct information when report file is empty', () => {
+	it('returns the correct information when report file is empty', () => {
 		const reportPath = './cypress/fixtures/emptyReport.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
@@ -22,7 +22,7 @@ describe('Allure report reader', () => {
 		})
 	})
 
-	it('should return the correct information when all the tests have passed', () => {
+	it('returns the correct information when all the tests have passed', () => {
 		const reportPath = './cypress/fixtures/passed.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
@@ -32,30 +32,30 @@ describe('Allure report reader', () => {
 		})
 	})
 
-	it('should return the correct information when some of the tests have failed', () => {
+	it('returns the correct information when some of the tests have failed', () => {
 		const reportPath = './cypress/fixtures/failed.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
 			expect(result.title).to.equal('2 test case(s) failed')
 			expect(result.color).to.equal('#FF0000')
 			expect(result.text).to.equal(
-				'Failed test case(s): <br/> should return the correct information when some of the tests are broken<br/>should return the correct information when the status of some tests is unknown'
+				'Failed test case(s): <br/> returns the correct information when some of the tests are broken<br/>returns the correct information when the status of some tests is unknown'
 			)
 		})
 	})
-	it('should return the correct information when some of the tests are broken', () => {
+	it('returns the correct information when some of the tests are broken', () => {
 		const reportPath = './cypress/fixtures/broken.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
 			expect(result.title).to.equal('1 test case is broken')
 			expect(result.color).to.equal('#FFFF00')
 			expect(result.text).to.equal(
-				'Broken test case(s): <br/> should return the correct information when report file is empty'
+				'Broken test case(s): <br/> returns the correct information when report file is empty'
 			)
 		})
 	})
 
-	it('should return the correct information when the status of some tests is unknown', () => {
+	it('returns the correct information when the status of some tests is unknown', () => {
 		const reportPath = './cypress/fixtures/unknown.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
@@ -67,7 +67,7 @@ describe('Allure report reader', () => {
 		})
 	})
 
-	it('should return the correct information when the test results are missing', () => {
+	it('returns the correct information when the test results are missing', () => {
 		const reportPath = './cypress/fixtures/missingResults.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
