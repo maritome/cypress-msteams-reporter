@@ -59,7 +59,7 @@ if (program.verbose) {
 			  )
 	}
 	try {
-		sendWebhook({ ...webhookArgs, reportUrl })
+		await sendWebhook({ ...webhookArgs, reportUrl })
 		console.log('MS Teams message was sent successfully.')
 	} catch (error) {
 		error.name
