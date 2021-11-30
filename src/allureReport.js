@@ -41,7 +41,7 @@ async function readAllureReport(reportPath, testEnvPath) {
 		image = fs.existsSync('./assets/images/error.png')
 			? 'data:image/png;base64,' + imageToBase64('./assets/images/error.png')
 			: ''
-		text = 'An error has occured and the test report is empty.'
+		text = 'An error has occurred and the test report is empty.'
 
 		return { appName, appVersion, color, title, image, text }
 	}
@@ -61,26 +61,27 @@ async function readAllureReport(reportPath, testEnvPath) {
 		(testRes) => testRes.status === Status.SKIPPED
 	)
 	if (failedTests.length > 0) {
-		title = `${failedTests.length} test case(s) failed`
+		title = `${failedTests.length} test ${
+			failedTests.length === 1 ? 'case' : 'cases'
+		} failed`
 		color = Color.RED
 		image = fs.existsSync('./assets/images/failed.png')
 			? 'data:image/png;base64,' + imageToBase64('./assets/images/failed.png')
 			: ''
-		text = `Failed test case(s): <br/> ${failedTests
-			.map((failedTest) => failedTest.name)
-			.join('<br/>')}`
+		text = `Failed test ${
+			failedTests.length === 1 ? 'case' : 'cases'
+		}: <br/> ${failedTests.map((failedTest) => failedTest.name).join('<br/>')}`
 	} else if (brokenTests.length > 0) {
-		title =
-			brokenTests.length === 1
-				? `${brokenTests.length} test case is broken`
-				: `${brokenTests.length} test cases are broken`
+		title = `${brokenTests.length} test ${
+			brokenTests.length === 1 ? 'case is' : 'cases are'
+		} broken`
 		color = Color.YELLOW
 		image = fs.existsSync('./assets/images/broken.png')
 			? 'data:image/png;base64,' + imageToBase64('././assets/images/broken.png')
 			: ''
-		text = `Broken test case(s): <br/> ${brokenTests
-			.map((brokenTest) => brokenTest.name)
-			.join('<br/>')}`
+		text = `Broken test ${
+			brokenTests.length === 1 ? 'case' : 'cases'
+		}: <br/> ${brokenTests.map((brokenTest) => brokenTest.name).join('<br/>')}`
 	} else if (
 		passedTests.length > 0 &&
 		passedTests.length === totalTests - skippedTests.length
