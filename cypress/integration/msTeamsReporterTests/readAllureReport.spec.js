@@ -70,7 +70,7 @@ describe('Allure report reader', () => {
 			expect(result.title).to.equal('1 test case is broken')
 			expect(result.color).to.equal('#FFFF00')
 			expect(result.text).to.equal(
-				'Broken test cases: <br/> returns the correct information when report file is empty'
+				'Broken test case: <br/> returns the correct information when report file is empty'
 			)
 		})
 	})
