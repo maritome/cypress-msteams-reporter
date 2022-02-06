@@ -37,7 +37,7 @@ describe('Allure report reader', () => {
 			expect(result.title).to.equal('Test report is empty')
 			expect(result.color).to.equal('#000000')
 			expect(result.text).to.equal(
-				'An error has occured and the test report is empty.'
+				'An error has occurred and the test report is empty.'
 			)
 		})
 	})
@@ -56,10 +56,10 @@ describe('Allure report reader', () => {
 		const reportPath = './cypress/fixtures/failed.json'
 		const testEnvPath = './cypress/fixtures/envProperties.json'
 		cy.task('readAllureReport', { reportPath, testEnvPath }).then((result) => {
-			expect(result.title).to.equal('2 test case(s) failed')
+			expect(result.title).to.equal('2 test cases failed')
 			expect(result.color).to.equal('#FF0000')
 			expect(result.text).to.equal(
-				'Failed test case(s): <br/> returns the correct information when some of the tests are broken<br/>returns the correct information when the status of some tests is unknown'
+				'Failed test cases: <br/> returns the correct information when some of the tests are broken<br/>returns the correct information when the status of some tests is unknown'
 			)
 		})
 	})
@@ -70,7 +70,7 @@ describe('Allure report reader', () => {
 			expect(result.title).to.equal('1 test case is broken')
 			expect(result.color).to.equal('#FFFF00')
 			expect(result.text).to.equal(
-				'Broken test case(s): <br/> returns the correct information when report file is empty'
+				'Broken test cases: <br/> returns the correct information when report file is empty'
 			)
 		})
 	})
