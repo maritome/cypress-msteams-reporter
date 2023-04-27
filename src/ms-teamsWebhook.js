@@ -3,8 +3,8 @@ const { IncomingWebhook } = require('ms-teams-webhook')
 
 async function sendWebhook(args) {
 	const webhook = new IncomingWebhook(process.env.MS_TEAMS_WEBHOOK_URL)
-	await webhook.send(
-		JSON.stringify({
+	await webhook.send({
+		
 			'@type': 'MessageCard',
 			'@context': 'https://schema.org/extensions',
 			summary: 'E2E Tests',
@@ -26,7 +26,7 @@ async function sendWebhook(args) {
 					target: [args.reportUrl],
 				},
 			],
+		
 		})
-	)
 }
 module.exports = { sendWebhook }
