@@ -24,7 +24,7 @@
   "dependencies": {
     "commander": "^6.2.1",
     "dotenv": "^8.2.0",
-    "ms-teams-webhook": "^1.0.4"
+    "ms-teams-webhook": "^2.0.0"
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.0.0",
